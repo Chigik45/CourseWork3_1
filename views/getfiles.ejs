@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Моя страница</title>
+</head>
+<body>
+    <div>
+        <ul>
+            <li><a href="/">Download/Home</a></li>
+            <li><a href="/whoami">Register/Login</a></li>
+            <li><a href="/get">Get all your files</a></li>
+            <li><a href="/profile">Your profile</a></li>
+        </ul>
+    </div>
+    <h1>Привет, <%= name %>!</h1>
+
+    <% if (showList) { %>
+        <ul>
+        <% for(let i = 0; i < items.length; i++) { %>
+            <li><a href="/get/<%= items[i] %>"><%= items[i] %></a> <a href="/delete/<%= items[i] %>">(Удалить)</a></li>
+        <% } %>
+        </ul>
+    <% } else { %>
+        <p>Список пуст.</p>
+    <% } %>
+</body>
+</html>

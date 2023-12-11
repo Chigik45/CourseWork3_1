@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Регистрация и Вход</title>
+</head>
+<body>
+    <div>
+        <ul>
+            <li><a href="/">Download/Home</a></li>
+            <li><a href="/whoami">Register/Login</a></li>
+            <li><a href="/get">Get all your files</a></li>
+            <li><a href="/profile">Your profile</a></li>
+        </ul>
+    </div>
+    <h2>Регистрация</h2>
+    <form action="/register" method="post">
+        <label for="reg_username">Имя пользователя:</label><br>
+        <input type="text" id="reg_username" name="username"><br>
+        <label for="reg_password">Пароль:</label><br>
+        <input type="password" id="reg_password" name="password"><br>
+        <input type="submit" value="Зарегистрироваться">
+    </form>
+
+    <h2>Вход</h2>
+    <form action="/login" method="post">
+        <label for="login_username">Имя пользователя:</label><br>
+        <input type="text" id="login_username" name="username"><br>
+        <label for="login_password">Пароль:</label><br>
+        <input type="password" id="login_password" name="password"><br>
+        <input type="submit" value="Войти">
+    </form>
+</body>
+</html>

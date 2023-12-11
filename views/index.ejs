@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h2>Главная страница</h2>
+<p>Загрузка файлов ниже</p>
+<div>
+    <ul>
+        <li><a href="/">Download/Home</a></li>
+        <li><a href="/whoami">Register/Login</a></li>
+        <li><a href="/get">Get all your files</a></li>
+        <li><a href="/profile">Your profile</a></li>
+    </ul>
+</div>
+<div style="display: flex; justify-content: center;">
+    <div style="font-family:'Courier New', Courier, monospace;" id="responce">
+    <br>
+    <input type="file" id="file" name="file" />
+    <br>
+    <input type="text" id="folder" name="folder" />
+    <button id="button" style="text-align: right;">Send</button>
+</div>
+
+<script>
+async function sendJSON() {
+    const fileInput = document.getElementById("file");
+    const folderInput = document.getElementById("folder");
+    const data = new FormData();
+    data.append('file', fileInput.files[0]);
+    data.append('folder', folderInput.value);
+
+    try {
+        const response = await fetch('http://localhost:8080/send-file', {
+            method: 'POST',
+            body: data
+        });
+        const responseData = await response.json();
+        document.getElementById("responce").textContent = responseData["message"]
+    } catch (error) {
+        console.error('Error:', error);
+    }
+}
+
+document.getElementById('button').addEventListener("click", function () {sendJSON()});
+</script>
+
+</body>
+</html>
